@@ -1,0 +1,17 @@
+version: "3.8"
+services:
+  app:
+    build:
+      context: .
+    ports:
+      - 3000:3000
+    image: app:react
+    command: npm start
+
+  server: 
+    ports:
+      - 8080:8080
+    image: server
+
+  git:
+    image: git
