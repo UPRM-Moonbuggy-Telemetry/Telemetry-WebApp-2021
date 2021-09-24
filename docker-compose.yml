@@ -12,6 +12,3 @@ services:
     ports:
       - 8080:8080
     image: server
-
-  git:
-    image: git
