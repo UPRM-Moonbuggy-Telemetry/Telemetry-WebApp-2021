@@ -39,7 +39,7 @@ export default function Navbar() {
               <i class="bi bi-graph-up icon"></i>Analytics
               </text></Nav.Link>
               <Nav.Link className="Navbar-button" href="/"><text>
-              <i class="bi bi-people icon"></i>About Us
+              <i class="bi bi-people icon" style={{marginRight:"20px", fontSize:"28px"}}></i>About Us
               </text></Nav.Link>
           </div>
           <div className="logo-list">  {/* Sponsors */}
