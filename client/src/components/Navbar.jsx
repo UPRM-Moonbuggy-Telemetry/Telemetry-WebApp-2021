@@ -1,7 +1,6 @@
 import React from "react";
 import { Nav } from "react-bootstrap";
 import "../App.css";
-import '@cds/core/button/register.js';
 
 //Images
 import shortlogo from "../assets/shortlogo.png";
@@ -12,8 +11,13 @@ import gmlogo from "../assets/gm.png";
 import boeinglogo from "../assets/boeing.png";
 import nnllogo from "../assets/NNL.png";
 
+//Icon (home)
+import { CdsIcon } from '@cds/react/icon';
+import { ClarityIcons, homeIcon } from '@cds/core/icon';
+ClarityIcons.addIcons(homeIcon);
 
 export default function Navbar() {
+  
 
   return (
     <div className="hamburger-container">
@@ -28,11 +32,15 @@ export default function Navbar() {
               <img alt="nasa logo" className="nasa-logo" src={nasalogo} />
           </div>
           <div className="button-list" > {/* Buttons/Links */}
-              <Nav.Link className="Navbar-button" href="/"> 
-              <cds-icon shape="home" size="24"></cds-icon>
-              <text>Dashboard</text></Nav.Link>
-              <Nav.Link className="Navbar-button" href="/"><text>Analytics</text></Nav.Link>
-              <Nav.Link className="Navbar-button" href="/"><text>About Us</text></Nav.Link>
+              <Nav.Link className="Navbar-button" href="/"><text>
+                <CdsIcon className="icon" size="lg" shape="home"></CdsIcon>Dashboard
+              </text></Nav.Link>
+              <Nav.Link className="Navbar-button" href="/"><text>
+              <i class="bi bi-graph-up icon"></i>Analytics
+              </text></Nav.Link>
+              <Nav.Link className="Navbar-button" href="/"><text>
+              <i class="bi bi-people icon"></i>About Us
+              </text></Nav.Link>
           </div>
           <div className="logo-list">  {/* Sponsors */}
             <img alt="chevron logo" className="chevron-logo" src={chevronlogo} />
