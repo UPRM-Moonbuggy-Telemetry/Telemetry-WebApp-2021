@@ -4,6 +4,7 @@ import "./App.css";
 //new imports
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import Navbar from "./components/Navbar";
+import Cards from "./components/Cards";
 // pages
 import Home from "./pages/home/home";
 import Analytics from "./pages/analytics/analytics";
@@ -21,6 +22,7 @@ function App() {
   return (
     <BrowserRouter>
     <Navbar/>
+    <Cards/>
       <Switch>
         <Route path="/" component= {Home} exact/>
         <Route path="/analytics" component= {Analytics} exact/>
