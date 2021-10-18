@@ -1,0 +1,27 @@
+.bar-block {
+    position: absolute;
+    width: auto;
+    height: 43.13px;
+    left: 261px;
+    right: 30px;
+    top: 20.61px;
+    background: #49A56C;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.4);
+    border-radius: 5px;
+}
+
+.bar-text {
+    align-items: center;
+    justify-content: space-between;
+    display: flex;
+    padding: 9px 25px 25px;
+
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    color: white;
+}
+
+.bar-icons {
+    margin-bottom: 4px;
+}
