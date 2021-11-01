@@ -35,10 +35,10 @@ export default function Navbar() {
               <Nav.Link className="Navbar-button" href="/"><text>
                 <CdsIcon className="icon" size="lg" shape="home"></CdsIcon>Dashboard
               </text></Nav.Link>
-              <Nav.Link className="Navbar-button" href="/"><text>
+              <Nav.Link className="Navbar-button" href="/analytics"><text>
               <i class="bi bi-graph-up icon"></i>Analytics
               </text></Nav.Link>
-              <Nav.Link className="Navbar-button" href="/"><text>
+              <Nav.Link className="Navbar-button" href="/aboutus"><text>
               <i class="bi bi-people icon" style={{marginRight:"20px", fontSize:"28px"}}></i>About Us
               </text></Nav.Link>
           </div>
