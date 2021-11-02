@@ -1,6 +1,14 @@
 import React from "react";
-import logo from "./logo.svg";
 import "./App.css";
+
+//new imports
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import Navbar from "./components/Navbar";
+import Cards from "./components/Cards";
+// pages
+import Home from "./pages/home/home";
+import Analytics from "./pages/analytics/analytics";
+import AboutUs from "./pages/aboutUs/aboutUs";
 
 function App() {
   const [data, setData] = React.useState(null);
@@ -12,12 +20,15 @@ function App() {
   }, []);
 
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>{!data ? "Loading..." : data}</p>
-      </header>
-    </div>
+    <BrowserRouter>
+    <Navbar/>
+    <Cards/>
+      <Switch>
+        <Route path="/" component= {Home} exact/>
+        <Route path="/analytics" component= {Analytics} exact/>
+        <Route path="/aboutus" component= {AboutUs} exact/>
+      </Switch>
+    </BrowserRouter>
   );
 }
 
