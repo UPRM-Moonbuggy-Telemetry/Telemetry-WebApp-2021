@@ -27,4 +27,5 @@
 .bar-icons {
     margin-bottom: 4px;
     margin-left: 4px;
+    transform: rotateX(180deg) rotateZ(90deg);
 }
