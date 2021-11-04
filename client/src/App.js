@@ -3,8 +3,12 @@ import "./App.css";
 
 //new imports
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
+
+// Componets
 import Navbar from "./components/Navbar";
+import StatusBar from "./components/StatusBar/StatusBar";
 import Cards from "./components/Cards";
+
 // pages
 import Home from "./pages/home/home";
 import Analytics from "./pages/analytics/analytics";
@@ -21,6 +25,7 @@ function App() {
 
   return (
     <BrowserRouter>
+    <StatusBar/>
     <Navbar/>
     <Cards/>
       <Switch>
