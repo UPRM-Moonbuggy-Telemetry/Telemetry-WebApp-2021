@@ -1,15 +1,16 @@
 import React from "react";
 import { Nav } from "react-bootstrap";
-import "../App.css";
+import "../../App.css";
+import "./navbar.css";
 
 //Images
-import shortlogo from "../assets/shortlogo.png";
-import uprmlogo from "../assets/uprm.png";
-import nasalogo from "../assets/nasa.png";
-import chevronlogo from "../assets/chevron.png";
-import gmlogo from "../assets/gm.png";
-import boeinglogo from "../assets/boeing.png";
-import nnllogo from "../assets/NNL.png";
+import shortlogo from "../../assets/shortlogo.png";
+import uprmlogo from "../../assets/uprm.png";
+import nasalogo from "../../assets/nasa.png";
+import chevronlogo from "../../assets/chevron.png";
+import gmlogo from "../../assets/gm.png";
+import boeinglogo from "../../assets/boeing.png";
+import nnllogo from "../../assets/NNL.png";
 
 //Icon (home)
 import { CdsIcon } from '@cds/react/icon';
