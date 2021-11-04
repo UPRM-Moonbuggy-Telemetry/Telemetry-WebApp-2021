@@ -3,7 +3,7 @@ import "./App.css";
 
 //new imports
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
-import Navbar from "./components/Navbar";
+import Navbar from "./components/navbar/Navbar";
 // pages
 import Home from "./pages/home/home";
 import Analytics from "./pages/analytics/analytics";
