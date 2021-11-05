@@ -69,6 +69,9 @@
     font-size: 24.7718px;
     line-height: 70px;
     color: #2E854F;
+
+    cursor: pointer;
+    outline: none;
   } 
   
   .Navbar-button:hover{
@@ -77,17 +80,19 @@
   }
   
   .logo-list{
-    width: inherit;
-    position: fixed;
+    width: 210px;
+    position: absolute;
     bottom: 0;
     left: 0;
-    display: inline-block;
-    margin: 10px 20px 20px 10px;
+
+    align-items: center;
+    justify-content: space-between;
+    padding: 9px 25px 25px;
   }
   
   .chevron-logo{
     position: relative;
-    width: 50.36px;
+    width: 70.36px;
     height: 58.9px;
     border-radius: 4.98346px;
     margin: 10px;
@@ -96,7 +101,7 @@
   .gm-logo{
     position: relative;
     width: 52.04px;
-    height: 60.8px;
+    height: 53.8px;
     margin: 10px;
     border-radius: 4.98346px;
     
@@ -107,6 +112,7 @@
     width: 81.42px;
     height: 40.85px;
     border-radius: 4.98346px;
+    margin-left: 45px;
   }
   
   .boeing-logo{
@@ -114,6 +120,7 @@
     width: 144.38px;
     height: 43.7px;
     border-radius: 4.98346px; 
+    margin-left: 10px;
   }
   
   .icon{
