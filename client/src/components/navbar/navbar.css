@@ -69,9 +69,6 @@
     font-size: 24.7718px;
     line-height: 70px;
     color: #2E854F;
-
-    cursor: pointer;
-    outline: none;
   } 
   
   .Navbar-button:hover{
@@ -82,7 +79,7 @@
   .logo-list{
     width: 210px;
     position: absolute;
-    bottom: 0;
+    bottom: -25px;
     left: 0;
 
     align-items: center;
