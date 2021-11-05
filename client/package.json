@@ -2,8 +2,9 @@
   "name": "client",
   "version": "0.1.0",
   "private": true,
-  "proxy": "http://localhost:3001",
+  "proxy": "http://localhost:8080",
   "dependencies": {
+    "@cds/city": "^1.1.0",
     "@cds/core": "^5.5.7",
     "@cds/react": "^5.5.7",
     "@testing-library/jest-dom": "^5.14.1",

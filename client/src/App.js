@@ -1,10 +1,15 @@
 import React from "react";
 import "./App.css";
 
-//new imports
+// New imports
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
+
+// Components
 import Navbar from "./components/navbar/Navbar";
-// pages
+import StatusBar from "./components/StatusBar/StatusBar";
+import Cards from "./components/Cards";
+
+// Pages
 import Home from "./pages/home/home";
 import Analytics from "./pages/analytics/analytics";
 import AboutUs from "./pages/aboutUs/aboutUs";
@@ -20,7 +25,9 @@ function App() {
 
   return (
     <BrowserRouter>
+    <StatusBar/>
     <Navbar/>
+    <Cards/>
       <Switch>
         <Route path="/" component= {Home} exact/>
         <Route path="/analytics" component= {Analytics} exact/>
