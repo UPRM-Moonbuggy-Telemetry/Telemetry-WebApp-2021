@@ -1,15 +1,15 @@
 import React from "react";
 import "./App.css";
 
-//new imports
+// New imports
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
-// Componets
-import Navbar from "./components/Navbar";
+// Components
+import Navbar from "./components/navbar/Navbar";
 import StatusBar from "./components/StatusBar/StatusBar";
 import Cards from "./components/Cards";
 
-// pages
+// Pages
 import Home from "./pages/home/home";
 import Analytics from "./pages/analytics/analytics";
 import AboutUs from "./pages/aboutUs/aboutUs";
