@@ -20,7 +20,7 @@ export default function StatusBar() {
                 <span>{current_date}</span>
                 <span style={connectionState ? {} : {color: 'red'}}>Connection: {connectionState ? "Online" : "Offline"}</span>
                 <span>Battery: {batteryState}%
-                    <CdsIcon className="bar-icons" size="md" shape="battery" badge={batteryState > 60 ? "info" : (batteryState < 60 && batteryState > 25) ? "warning" : "danger" } solid/>
+                    <CdsIcon className="bar-icons" size="md" shape="battery" badge={batteryState >= 60 ? "info" : (batteryState < 60 && batteryState > 25) ? "warning" : "danger" } solid/>
                 </span>
             </div>
         </div>
