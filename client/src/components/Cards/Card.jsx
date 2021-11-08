@@ -7,10 +7,11 @@ import './Card.css';
 
 export default function Card({widget, cardType}) {
     return (
+        // placeholder contents for future widgets
         <div className={cardType}>
-            <text className = "card-text">
-                {widget}
-            </text>
+        <text className = "card-text">
+            {widget}{` cardtype:${cardType}`}
+        </text>
         </div>
     )
 }

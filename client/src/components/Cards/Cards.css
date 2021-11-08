@@ -1,0 +1,18 @@
+/* Card section(grid) */
+.cardSection{
+    position: absolute;
+    width: 1149px;
+    height: 897px;
+    left: 261px;
+    top: 95px;
+  }
+/* End of card section(grid) */
+
+/* Block */
+.block{
+    position: relative;
+    background: #EFEFEF;
+    box-shadow: 4px 6px 4px rgba(0, 0, 0, 0.4);
+    border-radius: 20px;
+  }
+/* End of Block */
