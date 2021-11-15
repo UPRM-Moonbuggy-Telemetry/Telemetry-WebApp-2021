@@ -7,7 +7,6 @@
     width: fit-content;
     top: 20.61px;
     left: 261px;
-    padding-right: 1em;
 
     transition: all 0.3s;
     cursor: pointer;
@@ -28,8 +27,9 @@
     position: absolute;
     
     width: auto;
+    min-width: 800px;
     height: 43.13px;
-    left: 410px;
+    left: 416px;
     right: 30px;
     top: 20.61px;
 

@@ -8,8 +8,8 @@ import Cards from "../../components/Cards/Cards";
 function Home() {
     return (
         <>
-        <StatusBar />
         <Cards />
+        <StatusBar />
         <div>
             <h2> This is Home</h2>
         </div></>
