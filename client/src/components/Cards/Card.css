@@ -1,38 +1,17 @@
-/* Card section(grid) */
-.cardSection{
-    position: absolute;
-    width: 1149.26px;
-    height: 897.92px;
-    left: 261px;
-    top: 95.07px;
-  }
-/* End of card section(grid) */
-
-/* Card */
+/* Example Card Style */
 .card{
+  /* would have the styling of a specific card type */
+  /* To center things in the card the position needs to be set to absolute and follow the styling bellow */
     position: absolute;
-    width: 354px;
-    height: 275px;
-    /* left: 261px;
-    top: 95.07px; */
-    background: #EFEFEF;
-    box-shadow: 4px 6px 4px rgba(0, 0, 0, 0.4);
-    border-radius: 19.7128px;
-  
-    /* temporary card text */
-    font-family: 'Roboto Mono';
-    font-style: normal;
-    font-weight: bold;
+    width: max-content;
+    top: 50%;
+    left: 25%;
+    margin-top: - max-content/2;
   }
-/* End Card */
+/* End Example Card Style */
 
 /* temporary card text */
 .card-text{
-    position: relative;
-    top: 45%;
-    left: 40%;
-    bottom: 50%;
-    right: 50%;
     font-family: 'Roboto Mono';
     font-style: normal;
     font-weight: bold;
