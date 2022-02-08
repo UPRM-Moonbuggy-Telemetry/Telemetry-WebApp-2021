@@ -1,10 +1,39 @@
+.add-button {
+    background-color: #49A56C;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.4);
+    border-radius: 5px;
+    
+    position: absolute;
+    width: fit-content;
+    top: 20.61px;
+    left: 261px;
+
+    transition: all 0.3s;
+    cursor: pointer;
+}
+
+/* This is the animation for the add widget button */
+.add-button:hover {
+    opacity: 0.8;
+}
+
+.button-icon {
+    margin-bottom: 4px;
+    margin-left: 4px;
+    color: white;
+}
+
 .bar-block {
     position: absolute;
+    
     width: auto;
+    min-width: 800px;
     height: 43.13px;
-    left: 261px;
+    left: 416px;
     right: 30px;
     top: 20.61px;
+
+    width: auto;
     background: #49A56C;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.4);
     border-radius: 5px;
@@ -14,7 +43,8 @@
     align-items: center;
     justify-content: space-between;
     display: flex;
-    padding: 9px 25px 25px;
+
+    padding: 9px 25px 9px;
 
     font-family: "Roboto Mono";
     line-height: 24px;
