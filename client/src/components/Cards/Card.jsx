@@ -1,5 +1,6 @@
 import React from 'react';
 import './Card.css';
+import PropTypes from 'prop-types'
 
 //Component to represent the "cards" that will show up on screen with the different "widgets"
 //"cardType" is a prop of type String which will determine the styling of the card as needed for each different widget
@@ -7,10 +8,20 @@ import './Card.css';
 
 export default function Card({widget, cardType}) {
     return (
+        // placeholder contents for future widgets
         <div className={cardType}>
-            <text className = "card-text">
-                {widget}
-            </text>
+        <text className = "card-text">
+            {widget}{` cardtype:${cardType}`}
+        </text>
         </div>
     )
+}
+
+Card.defaultProps = {
+    cardType: "card",
+}
+
+Card.propTypes = {
+    cardType: PropTypes.string,
+    widget: PropTypes.any.isRequired
 }
