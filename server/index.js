@@ -1,4 +1,5 @@
 // server/server.js
+const dataRoutes = require("./routes/dataRoutes");
 
 const express = require("express");
 
