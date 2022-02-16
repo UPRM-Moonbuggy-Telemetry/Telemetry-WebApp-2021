@@ -10,9 +10,10 @@ export default function Card({widget, cardType}) {
     return (
         // placeholder contents for future widgets
         <div className={cardType}>
-        <text className = "card-text">
+        {/* <text className = "card-text">
             {widget}{` cardtype:${cardType}`}
-        </text>
+        </text> */}
+        {widget}
         </div>
     )
 }

@@ -2,9 +2,13 @@ import React from 'react';
 import Card from './Card';
 import GridLayout from 'react-grid-layout';
 import { Responsive, WidthProvider } from 'react-grid-layout';
-import './Cards.css'
-import '../../../node_modules/react-grid-layout/css/styles.css'
-import '../../../node_modules/react-resizable/css/styles.css'
+import './Cards.css';
+import '../../../node_modules/react-grid-layout/css/styles.css';
+import '../../../node_modules/react-resizable/css/styles.css';
+
+
+import '../StrainChart/StrainChart';
+import StrainChart from '../StrainChart/StrainChart';
 
 // Component to hold all the cards needed and allocate them in the "dashboard" space
 // To add cards add a new dictionary to the 'layout' array
@@ -20,7 +24,7 @@ export default function Cards() {
 
     const layouts = {lg:[
         {i: 'GPS', x: 0, y: 1, w: 1, h: 1, isDraggable: true, isBounded: true},
-        {i: 'STRAIN CHART', x: 0, y: 0, w: 1, h: 1},
+        {i: 'STRAIN CHART', x: 0, y: 0, w: 1, h: 1, isResizable: false},
         {i: 'c', x: 2, y: 0, w: 1, h: 1},
         // {i: 'd', x: 3, y: 0, w: 1, h: 1},
 
@@ -45,11 +49,14 @@ export default function Cards() {
             maxRows={2}
             rowHeight={400} 
             margin={[10,25]}>
-                {layouts['lg'].map((i) => (
+                {/* {layouts['lg'].map((i) => (
                     <section key={i.i} className="block">
                         <Card widget={`${i.i} widget`}/>  
                     </section>
-                ))}
+                ))} */}
+                <section key='STRAIN CHART' className='block'>
+                    <Card widget={<StrainChart/>}/>
+                </section>
             </ResponsiveGridLayout>
         </div>
     )
