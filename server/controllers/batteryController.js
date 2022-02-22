@@ -2,7 +2,7 @@ const db = require("../../db");
 require("dotenv").config();
 
 
-const addBaterryData = async (req, res) => {
+const addBatteryData = async (req, res) => {
   //Battery Data
   const {battery_percentage} = req.body.data;
 
@@ -30,7 +30,7 @@ const getBatteryData = async (req,res) => {
         status: "success",
         results: allBatteryData.rows.length,
         data: {
-            users: allBatteryData.rows
+            battery: allBatteryData.rows
         },
     });
   } catch (err) {
@@ -41,9 +41,13 @@ const getBatteryData = async (req,res) => {
 
 const updateBatteryData = async (req,res) => {
   try {
-    const result = await db.query("DELETE FROM BatteryData WHERE battery_id = $1", [req.params.id])
+    const {battery_percentage} = req.body.data;
+    const result = await db.query("UPDATE BatteryData SET battery_percentage = $1 WHERE battery_id = $2", [battery_percentage, req.params.bid])
     res.status(204).json({
         status: "success",
+        data: {
+          battery: result.rows[0]
+        }
     });
   } catch (err) {
       console.log(err);
@@ -52,7 +56,7 @@ const updateBatteryData = async (req,res) => {
 
 const deleteBatteryData = async (req,res) => {
   try {
-    const result = await db.query("DELETE FROM BatteryData WHERE battery_id = $1", [req.params.id])
+    const result = await db.query("DELETE FROM BatteryData WHERE battery_id = $1", [req.params.bid])
     res.status(204).json({
         status: "success",
     });
@@ -62,7 +66,7 @@ const deleteBatteryData = async (req,res) => {
 }
 
 module.exports = {
-  addBaterryData,
+  addBatteryData,
   getBatteryData,
   updateBatteryData,
   deleteBatteryData
