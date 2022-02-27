@@ -26,7 +26,7 @@ const getLocationData = async (req,res) => {
         status: "success",
         results: allData.rows.length,
         data: {
-            users: allData.rows
+            location: allData.rows
         },
     });
   } catch (err) {
@@ -37,9 +37,16 @@ const getLocationData = async (req,res) => {
 
 const updateLocationData = async (req,res) => {
   try {
-    const result = await db.query("DELETE FROM LocationData WHERE data_id = $1", [req.params.id])
+    const {latitude, longitude} = req.body.data;
+    const result = await db.query("UPDATE LocationData SET latitude = $1, longitude = $2 WHERE location_id = $3", 
+    [latitude, longitude, req.params.lid]
+    );
+
     res.status(204).json({
         status: "success",
+        data: {
+          location: result.rows[0]
+        }
     });
   } catch (err) {
       console.log(err);
@@ -48,7 +55,7 @@ const updateLocationData = async (req,res) => {
 
 const deleteLocationData = async (req,res) => {
   try {
-    const result = await db.query("DELETE FROM LocationData WHERE data_id = $1", [req.params.id])
+    const result = await db.query("DELETE FROM LocationData WHERE location_id = $1", [req.params.lid])
     res.status(204).json({
         status: "success",
     });

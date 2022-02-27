@@ -13,7 +13,9 @@ const addVibrationData = async (req, res) => {
     } = req.body.data;
 
   //Battery Data Entry 
-  if(battery_percentage !== null) {
+  if(vibration_front_lft !== null && vibration_front_rt !== null 
+    && vibration_rear_lft !== null && vibration_rear_rt !== null 
+    && vibration_center_back !== null) {
       try{
         const newEntry = await db.query
           (
@@ -36,12 +38,12 @@ const addVibrationData = async (req, res) => {
 
 const getVibrationData = async (req,res) => {
   try {
-    const allVibrationData = await db.query("SELECT * FROM users");
+    const allVibrationData = await db.query("SELECT * FROM VibrationData");
     res.status(200).json({
         status: "success",
-        results: VibrationData.rows.length,
+        results: allVibrationData.rows.length,
         data: {
-            users: VibrationData.rows
+            vibration: allVibrationData.rows
         },
     });
   } catch (err) {
@@ -52,9 +54,21 @@ const getVibrationData = async (req,res) => {
 
 const updateVibrationData = async (req,res) => {
   try {
-    const result = await db.query("DELETE FROM user_schedule WHERE vibration_id = $1", [req.params.id])
+    const {
+      vibration_front_lft,
+      vibration_front_rt,
+      vibration_rear_lft,
+      vibration_rear_rt,
+      vibration_center_back
+      } = req.body.data;
+    
+    const result = await db.query("UPDATE VibrationData SET vibration_front_lft = $1, vibration_front_rt = $2, vibration_rear_lft = $3, vibration_rear_rt = $4, vibration_center_back = $5 WHERE vibration_id = $=6", 
+                          [vibration_front_lft, vibration_front_rt, vibration_rear_lft, vibration_rear_rt, vibration_center_back, req.params.vid])
     res.status(204).json({
         status: "success",
+        data: {
+          vibration: result.rows[0]
+        }
     });
   } catch (err) {
       console.log(err);
@@ -63,7 +77,7 @@ const updateVibrationData = async (req,res) => {
 
 const deleteVibrationData = async (req,res) => {
   try {
-    const result = await db.query("DELETE FROM user_schedule WHERE vibration_id = $1", [req.params.id])
+    const result = await db.query("DELETE FROM VibrationData WHERE vibration_id = $1", [req.params.vid])
     res.status(204).json({
         status: "success",
     });
