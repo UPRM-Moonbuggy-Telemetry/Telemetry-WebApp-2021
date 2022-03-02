@@ -1,4 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
+
+// Context
+import { widgetContext } from "../../assets/contexts/WidgetContext";
 
 // Components
 import Button from "../Button/Button";
@@ -14,6 +17,10 @@ ClarityIcons.addIcons(angleIcon);
 
 export default function Menu(){
     const [ submenuState, setSubmenuState ] = useState(false);
+
+    const gpsValue = useContext(widgetContext)['gps'];
+    const strainChartValue = useContext(widgetContext)['strain'];
+    const handleChange =  useContext(widgetContext)['handleChange'];
 
     const graphsButtonStyle = {
         border: "none",
@@ -50,7 +57,7 @@ export default function Menu(){
                 { submenuState ?
                     <div>
                         <div className="menu-item sub-item">
-                            <Checkbox label="Strain"/>
+                            <Checkbox label="Strain" value={strainChartValue} handleChange={handleChange} name={'strain-chart'}/>
                         </div>
                         <div className="menu-item sub-item">
                             <Checkbox label="Vibration"/>
@@ -68,7 +75,7 @@ export default function Menu(){
                     <Checkbox label="Speed-O-Meter"/>
                 </div>
                 <div className="menu-item">
-                    <Checkbox label="Global Positioning System"/>
+                    <Checkbox label="Global Positioning System" value={gpsValue} handleChange={handleChange} name={'gps-map'}/>
                 </div>
             </div>
         </div>
