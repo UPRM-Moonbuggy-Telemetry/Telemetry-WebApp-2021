@@ -3,9 +3,9 @@ const router = express.Router();
 
 const  batteryController = require('../controllers/batteryController');
 
-router.post("/dataEntry/battery", batteryController.enterData);
-router.get("/dataEntry/battery", batteryController.getData);
-router.put("/dataEntry/battery", batteryController.updateData);
-router.delete("/dataEntry/battery", batteryController.deleteData);
+router.post("/dataEntry/battery", batteryController.addBatteryData);
+router.get("/dataEntry/battery", batteryController.getBatteryData);
+router.put("/dataEntry/battery", batteryController.updateBatteryData);
+router.delete("/dataEntry/battery", batteryController.deleteBatteryData);
 
 module.exports = router;

@@ -3,9 +3,9 @@ const router = express.Router();
 
 const  hallEffectController = require('../controllers/halleffectController');
 
-router.post("/dataEntry/halleffect", hallEffectController.enterData);
-router.get("/dataEntry/halleffect", hallEffectController.getData);
-router.put("/dataEntry/halleffect", hallEffectController.updateData);
-router.delete("/dataEntry/halleffect", hallEffectController.deleteData);
+router.post("/dataEntry/halleffect", hallEffectController.addHallEffectData);
+router.get("/dataEntry/halleffect", hallEffectController.getHallEffectData);
+router.put("/dataEntry/halleffect", hallEffectController.updateHallEffectData);
+router.delete("/dataEntry/halleffect", hallEffectController.deleteHallEffectData);
 
 module.exports = router;

@@ -3,9 +3,9 @@ const router = express.Router();
 
 const  locationController = require('../controllers/locationController');
 
-router.post("/dataEntry/battery", locationController.enterData);
-router.get("/dataEntry/battery", locationController.getData);
-router.put("/dataEntry/battery", locationController.updateData);
-router.delete("/dataEntry/battery", locationController.deleteData);
+router.post("/dataEntry/location", locationController.addLocationData);
+router.get("/dataEntry/location", locationController.getLocationData);
+router.put("/dataEntry/location", locationController.updateLocationData);
+router.delete("/dataEntry/location", locationController.deleteLocationData);
 
 module.exports = router;
