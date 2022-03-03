@@ -1,0 +1,17 @@
+# For dev configuration
+PG_USER = ''
+PG_PASSWORD = ''
+PG_HOST = ''
+PG_DATABASE = ''
+PG_PORT = ''
+
+NODE_ENV = 'dev'
+
+# For production configuration
+
+DATABASE_URL = ''
+
+NODE_ENV = 'production'
+
+# port for server
+PORT = '7090'
