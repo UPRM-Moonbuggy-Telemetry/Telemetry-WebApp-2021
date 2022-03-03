@@ -1,21 +1,24 @@
-const db = require("../../db");
+const db = require("../db");
 require("dotenv").config();
 
 const addLocationData = async (req, res) => {
   //location Data
-  const {latitude, longitude}= req.body.data;
+  const {data_id, latitude, longitude}= req.body.data;
   
-  try{
-    const newEntry = await db.query
-      (
-          "INSERT INTO LocationData (latitude, longitude) VALUES ($1, $2) RETURNING *",
-          [latitude, longitude]
-      );
+  if(latitude !==null && longitude!==null){
+    try{
+      const newEntry = await db.query
+        (
+            "INSERT INTO LocationData (latitude, longitude, data_id) VALUES ($1, $2, $3) RETURNING *",
+            [latitude, longitude,data_id]
+        );
 
-    res.status(201).json(newEntry.rows[0]);
+      // res.status(201).json(newEntry.rows[0]);
+      return newEntry.rows[0];
 
-  } catch (err) {
-      console.log(err);
+    } catch (err) {
+        console.log(err);
+    }
   }
 }
 

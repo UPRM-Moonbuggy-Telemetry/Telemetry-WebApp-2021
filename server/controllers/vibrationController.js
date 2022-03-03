@@ -1,10 +1,11 @@
-const db = require("../../db");
+const db = require("../db");
 require("dotenv").config();
 
 
 const addVibrationData = async (req, res) => {
   // Vibration Data
   const {
+    sensor_id,
     vibration_front_lft,
     vibration_front_rt,
     vibration_rear_lft,
@@ -19,17 +20,19 @@ const addVibrationData = async (req, res) => {
       try{
         const newEntry = await db.query
           (
-            "INSERT INTO VibrationData (vibration_front_lft, vibration_front_rt, vibration_rear_lft,vibration_rear_rt, vibration_center_back) VALUES ($1, $2, $3, $4, $5) RETURNING *",
+            "INSERT INTO VibrationData (vibration_front_lft, vibration_front_rt, vibration_rear_lft,vibration_rear_rt, vibration_center_back, sensor_id) VALUES ($1, $2, $3, $4, $5, $6) RETURNING *",
             [ vibration_front_lft,
               vibration_front_rt,
               vibration_rear_lft,
               vibration_rear_rt,
-              vibration_center_back
+              vibration_center_back,
+              sensor_id
             ]
           );
   
-        res.status(201).json(newEntry.rows[0]);
-    
+        //res.status(201).json(newEntry.rows[0]);
+        return newEntry.rows[0];
+        
       } catch (err) {
           console.log(err);
       }

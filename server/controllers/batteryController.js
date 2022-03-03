@@ -1,21 +1,22 @@
-const db = require("../../db");
+const db = require("../db");
 require("dotenv").config();
 
 
 const addBatteryData = async (req, res) => {
   //Battery Data
-  const {battery_percentage} = req.body.data;
+  const {data_id, battery_percentage} = req.body.data;
 
   //Battery Data Entry 
   if(battery_percentage !== null) {
       try{
         const newEntry = await db.query
           (
-              "INSERT INTO BatteryData (battery_percentage) VALUES ($1) RETURNING *",
-              [battery_percentage]
+              "INSERT INTO BatteryData (battery_percentage, data_id) VALUES ($1,$2) RETURNING *",
+              [battery_percentage,data_id]
           );
   
-        res.status(201).json(newEntry.rows[0]);
+        // res.status(201).json(newEntry.rows[0]);
+        return newEntry.rows[0];
     
       } catch (err) {
           console.log(err);

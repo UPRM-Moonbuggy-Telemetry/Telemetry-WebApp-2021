@@ -1,36 +1,35 @@
-const db = require("../../db");
+const db = require("../db");
 require("dotenv").config();
 
 
-const addHalleffectData = async (req, res) => {
+const addSensorData = async (req, res) => {
   //Hall Effect Data
-  const {rpm } = req.body.data;
+  const {data_id} = req.body.data;
 
-  //Battery Data Entry 
-  if(rpm !== null) {
-      try{
-        const newEntry = await db.query
-          (
-              "INSERT INTO account (username, password, email, account_validation) VALUES ($1, $2, $3, $4) RETURNING *",
-              [username, hashedPassword, email, 0]
-          );
-  
-        res.status(201).json(newEntry.rows[0]);
-    
-      } catch (err) {
-          console.log(err);
-      }
+  try{
+    const newEntry = await db.query
+      (
+          "INSERT INTO sensorData (data_id) VALUES ($1) RETURNING *",
+          [data_id]
+      );
+
+    // res.status(201).json(newEntry.rows[0]);
+    return newEntry.rows[0];
+
+  } catch (err) {
+      console.log(err);
   }
 }
 
-const getHalleffectData = async (req,res) => {
+
+const getSensorData = async (req,res) => {
   try {
-    const allUsers = await db.query("SELECT * FROM users");
+    const allSensorData = await db.query("SELECT * FROM sensorData");
     res.status(200).json({
         status: "success",
-        results: allUsers.rows.length,
+        results: allSensorData.rows.length,
         data: {
-            users: allUsers.rows
+            sensorData: allSensorData.rows
         },
     });
   } catch (err) {
@@ -39,9 +38,9 @@ const getHalleffectData = async (req,res) => {
 }
 
 
-const updateHalleffectData = async (req,res) => {
+const updateSensorData = async (req,res) => {
   try {
-    const result = await db.query("DELETE FROM user_schedule WHERE user_id = $1", [req.params.id])
+    const result = await db.query("DELETE FROM sensorData WHERE user_id = $1", [req.params.id])
     res.status(204).json({
         status: "success",
     });
@@ -50,9 +49,9 @@ const updateHalleffectData = async (req,res) => {
   }
 }
 
-const deleteHalleffectData = async (req,res) => {
+const deleteSensorData = async (req,res) => {
   try {
-    const result = await db.query("DELETE FROM user_schedule WHERE user_id = $1", [req.params.id])
+    const result = await db.query("DELETE FROM sensorData WHERE user_id = $1", [req.params.id])
     res.status(204).json({
         status: "success",
     });
@@ -62,8 +61,8 @@ const deleteHalleffectData = async (req,res) => {
 }
 
 module.exports = {
-    addHalleffectData,
-    getHalleffectData,
-    updateHalleffectData,
-    deleteHalleffectData
+    addSensorData,
+    getSensorData,
+    updateSensorData,
+    deleteSensorData
 }

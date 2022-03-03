@@ -1,18 +1,17 @@
-const db = require("../../db");
+const db = require("../db");
 require("dotenv").config();
 
 
 const addHallEffectData = async (req, res) => {
   //Hall Effect Data
-  const {rpm } = req.body.data;
+  const { sensor_id, rpm } = req.body.data;
 
-  //Battery Data Entry 
   if(rpm !== null) {
       try{
         const newEntry = await db.query
           (
-              "INSERT INTO HallEffectData (rpm) VALUES ($1) RETURNING *",
-              [rpm]
+              "INSERT INTO HallEffectData (rpm, data_id) VALUES ($1,$2) RETURNING *",
+              [rpm, data_id]
           );
   
         res.status(201).json(newEntry.rows[0]);

@@ -1,18 +1,42 @@
-const db = require("../../db");
+const { append } = require("express/lib/response");
+const db = require("../db");
 require("dotenv").config();
+
+const  batteryController = require('./batteryController');
+const  locationController = require('../controllers/locationController');
+const  sensorController = require('../controllers/sensorController');
+const  strainController = require('../controllers/strainController');
+const  vibrationController = require('../controllers/vibrationController');
+const  hallEffectController = require('../controllers/halleffectController');
 
 const addData = async (req, res) => {
   //Rover Data
   const { created_at, updated_at} = req.body.data;
-  
+
   try{
     const newEntry = await db.query
       (
           "INSERT INTO RoverData (created_at, updated_at) VALUES ($1, $2) RETURNING *",
           [created_at, updated_at]
       );
+    
+    req.body.data['data_id'] = newEntry.rows[0]['data_id'];
+    const battery = await batteryController.addBatteryData(req,res);
+    const location = await locationController.addLocationData(req,res);
+    const sensor =  await sensorController.addSensorData(req,res);
+    req.body.data['sensor_id'] = sensor['sensor_id'];
+    const strain = await strainController.addStrainData(req,res);
+    const vibration = await vibrationController.addVibrationData(req,res);
+    const halleffect = await hallEffectController.addHallEffectData(req,res);
+    
+    newEntry.rows.push(battery);
+    newEntry.rows.push(location);
+    newEntry.rows.push(sensor);// I don't think it's necesary
+    newEntry.rows.push(strain);
+    newEntry.rows.push(vibration);
+    newEntry.rows.push(halleffect);
 
-    res.status(201).json(newEntry.rows[0]);
+    res.status(201).json(newEntry.rows);
 
   } catch (err) {
       console.log(err);

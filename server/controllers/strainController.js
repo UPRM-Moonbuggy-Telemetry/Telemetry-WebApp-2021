@@ -1,10 +1,11 @@
-const db = require("../../db");
+const db = require("../db");
 require("dotenv").config();
 
 
-const addHalleffectData = async (req, res) => {
+const addStrainData = async (req, res) => {
   // Strain Data
   const {
+    sensor_id,
     strain_center_front_1, strain_center_front_2, strain_center_front_3,
     strain_center_back_1, strain_center_back_2, strain_center_back_3,
     strain_backseat_1, strain_backseat_2, strain_backseat_3,
@@ -12,7 +13,10 @@ const addHalleffectData = async (req, res) => {
     } = req.body.data;
 
   //Battery Data Entry 
-  if(battery_percentage !== null) {
+  if(strain_center_front_1 && strain_center_front_2 && strain_center_front_3 &&
+    strain_center_back_1 && strain_center_back_2 && strain_center_back_3 &&
+    strain_backseat_1 && strain_backseat_2 && strain_backseat_3&&
+    shear_strain_1 && shear_strain_2 && shear_strain_3  !== null) {
       try{
         const newEntry = await db.query
           (
@@ -28,7 +32,7 @@ const addHalleffectData = async (req, res) => {
   }
 }
 
-const getHalleffectData = async (req,res) => {
+const getStrainData = async (req,res) => {
   try {
     const allUsers = await db.query("SELECT * FROM users");
     res.status(200).json({
@@ -44,7 +48,7 @@ const getHalleffectData = async (req,res) => {
 }
 
 
-const updateHalleffectData = async (req,res) => {
+const updateStrainData = async (req,res) => {
   try {
     const result = await db.query("DELETE FROM user_schedule WHERE user_id = $1", [req.params.id])
     res.status(204).json({
@@ -55,7 +59,7 @@ const updateHalleffectData = async (req,res) => {
   }
 }
 
-const deleteHalleffectData = async (req,res) => {
+const deleteStrainData = async (req,res) => {
   try {
     const result = await db.query("DELETE FROM user_schedule WHERE user_id = $1", [req.params.id])
     res.status(204).json({
@@ -67,8 +71,8 @@ const deleteHalleffectData = async (req,res) => {
 }
 
 module.exports = {
-    addHalleffectData,
-    getHalleffectData,
-    updateHalleffectData,
-    deleteHalleffectData
+    addStrainData,
+    getStrainData,
+    updateStrainData,
+    deleteStrainData
 }
