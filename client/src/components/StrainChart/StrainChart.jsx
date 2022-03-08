@@ -1,4 +1,5 @@
 import {React, useState, useEffect} from 'react';
+import Button from '../Button/Button';
 import axios from 'axios';
 import {Line} from 'react-chartjs-2';
 import {
@@ -38,14 +39,28 @@ import {
 
 // const labels = ['0s', '5s', '10s', '15s', '20s', '25s', '30s'];
 
+const graphsButtonStyle = {
+  border: "none",
+  textAlign: "left",
+  textDecoration: "none",
+  background: "none",
+  fontFamily: "Roboto Mono",
+  fontStyle: "normal",
+  fontWeight: "normal",
+  fontSize: "17px",
+  color: "#2E854F",
+  width: "100%",
+  cursor: "pointer"
+}
 
 
 export default function StrainChart() {
+  const[liveState, setLiveState] = useState(null);
   const[strainFront, setStrainFront] = useState([]);
   const[strainCenter, setStrainCenter] = useState([]);
   const[strainBack, setStrainBack] = useState([]);
   const[count, setCount] = useState(0);   //ISSUE COUNT NUNCA QUISO AUMENTAR
-  const[labels, setLabels] = useState(['0', '5', '10', '15', '20', '25', '30']);  //DEBERIA EMPEZAR VACIO
+  const[labels, setlabels] = useState(['0', '5', '10', '15', '20', '25', '30']);  //DEBERIA EMPEZAR VACIO
   let num = 0;   //PLACEHOLDER DE COUNT
 
   const data = {
@@ -72,37 +87,37 @@ export default function StrainChart() {
     ],
   };
 
-  const labelMaker = () => {
+  const labelMaker = (num) => {
     if(num === 0){
-      setLabels((labels) => ['0']);
+      setlabels((labels) => ['0']);
     }else if(num === 1){
-      setLabels((labels) => ['0', '5']);
+      setlabels((labels) => ['0', '5']);
     }else if(num === 2){
-      setLabels((labels) => ['0', '5', '10']);
+      setlabels((labels) => ['0', '5', '10']);
     }else if(num === 3){
-      setLabels((labels) => ['0', '5', '10', '15']);
+      setlabels((labels) => ['0', '5', '10', '15']);
     }else if(num === 4){
-      setLabels((labels) => ['0', '5', '10', '15', '20']);
+      setlabels((labels) => ['0', '5', '10', '15', '20']);
     }else if(num === 5){
-      setLabels((labels) => ['0', '5', '10', '15', '20', '25']);
+      setlabels((labels) => ['0', '5', '10', '15', '20', '25']);
     }else if(num === 6){
-      setLabels((labels) => ['0', '5', '10', '15', '20', '25', '30']);
+      setlabels((labels) => ['0', '5', '10', '15', '20', '25', '30']);
     }else if(num === 7){
-      setLabels((labels) => ['0', '5', '10', '15', '20', '25', '30']);
+      setlabels((labels) => ['0', '5', '10', '15', '20', '25', '30']);
     }else if(num > 7){
-      setLabels((labels) => labels.map((i) => parseInt(i) + 5));
+      setlabels((labels) => labels.map((i) => parseInt(i) + 5));
     }
   }
-
+  console.log(labels);
   const chart = () => {
-    labelMaker();
+    labelMaker(num);
     // setCount(count + 1);
-
 
     axios.get('https://jsonplaceholder.typicode.com/todos/1')
     .then(res => {
-      console.log(res);
-  
+      // console.log(res);
+      
+
       setStrainFront(labels.map((i) => (Math.random() * 1000)));
       setStrainCenter(labels.map((i) => (Math.random() * 1000)));
       setStrainBack(labels.map((i) => (Math.random() * 1000)))
@@ -113,20 +128,36 @@ export default function StrainChart() {
 
   };
 
-  useEffect(() => {
-    const intervalID = setInterval(() => {
+  
+  const graphStart = () => {    
+    setLiveState(setInterval(() => {
       console.log(num);
       num = num+1;
       chart();
-    }, 2000)
-    return () => clearInterval(intervalID);
-  }, [])
+    }, 2000))
+    //return () => clearInterval(intervalID);
+  }
 
-  console.log(strainFront);
+  const graphStop = () => {
+    clearInterval(liveState)
+  }
+
+  // useEffect(() => {
+  //   const intervalID = setInterval(() => {
+  //     console.log(num);
+  //     num = num+1;
+  //     chart();
+  //   }, 2000)
+  //   return () => clearInterval(intervalID);
+  // }, [])
+
+  // console.log(strainFront);
 
   return (
       <div>
           <Line options={options} data={data} />
+          <Button style={graphsButtonStyle} text={'start'} callback={graphStart} />
+          <Button style={graphsButtonStyle} text={'stop'} callback={graphStop} />
       </div>
   )
 
