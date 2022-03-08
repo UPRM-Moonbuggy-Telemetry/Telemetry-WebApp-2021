@@ -1,0 +1,7 @@
+.marker {
+    background-image: url('/Telemetry-WebApp-2021/client/src/assets/map-marker-g.png');
+    background-size: cover;
+    width: 24px;
+    height: 24px;
+    border-radius: 50;
+}

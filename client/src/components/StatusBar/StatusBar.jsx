@@ -13,6 +13,7 @@ import { ClarityIcons, batteryIcon, plusCircleIcon, minusCircleIcon } from '@cds
 ClarityIcons.addIcons(batteryIcon, plusCircleIcon, minusCircleIcon);
 
 export default function StatusBar() {
+    // StatusBar States
     const [batteryState, setBatteryState] = useState(23);
     const [connectionState, setConnectionState] = useState(false);
     const [ menuState, setMenuState ] = useState(false);
@@ -48,7 +49,7 @@ export default function StatusBar() {
     const menuToggle = () => (
         setMenuState(!menuState)
     );
-
+    
     return (
         <div>
             <div className="bar">
