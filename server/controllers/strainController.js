@@ -12,6 +12,15 @@ const addStrainData = async (req, res) => {
     shear_strain_1, shear_strain_2, shear_strain_3 
     } = req.body.data;
 
+    //Modified names
+    // strain_upper_aarm_left
+    // strain_upper_aarm_right
+    // strain_swing_arm_left
+    // strain_swing_arm_right
+    // strain_collapsion_front
+    // strain_collapsion_back
+    // strain_p_modified
+
   //Battery Data Entry 
   if(strain_center_front_1 && strain_center_front_2 && strain_center_front_3 &&
     strain_center_back_1 && strain_center_back_2 && strain_center_back_3 &&
@@ -24,7 +33,8 @@ const addStrainData = async (req, res) => {
               // [username, hashedPassword, email, 0]
           );
   
-        res.status(201).json(newEntry.rows[0]);
+        //res.status(201).json(newEntry.rows[0]);
+        return newEntry.rows[0]
     
       } catch (err) {
           console.log(err);

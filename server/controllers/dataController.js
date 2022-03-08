@@ -31,7 +31,7 @@ const addData = async (req, res) => {
     
     newEntry.rows.push(battery);
     newEntry.rows.push(location);
-    newEntry.rows.push(sensor);// I don't think it's necesary
+    newEntry.rows.push(sensor);
     newEntry.rows.push(strain);
     newEntry.rows.push(vibration);
     newEntry.rows.push(halleffect);
@@ -72,10 +72,30 @@ const updateData = async (req,res) => {
 
 const deleteData = async (req,res) => {
   try {
-    const result = await db.query("DELETE FROM RoverData WHERE data_id = $1", [req.params.id])
+    const result = await db.query("DELETE FROM RoverData NATURAL INNER JOIN LocationData WHERE data_id = $1 ", [req.params.id])
     res.status(204).json({
         status: "success",
     });
+   
+    const result1 = await db.query("DELETE FROM RoverData NATURAL INNER JOIN BatteryData WHERE data_id = $1 ", [req.params.id])
+    res.status(204).json({
+        status: "success",
+    });
+
+    const result2 = await db.query("DELETE FROM RoverData NATURAL INNER JOIN sensorData NATURAL INNER JOIN strainData WHERE data_id = $1 ", [req.params.id])
+    res.status(204).json({
+        status: "success",
+    });
+
+    const result3 = await db.query("DELETE FROM RoverData NATURAL INNER JOIN sensorData NATURAL INNER JOIN VibrationData WHERE data_id = $1 ", [req.params.id])
+    res.status(204).json({
+        status: "success",
+    });
+    const result4 = await db.query("DELETE FROM RoverData NATURAL INNER JOIN sensorData NATURAL INNER JOIN HalleffectData WHERE data_id = $1 ", [req.params.id])
+    res.status(204).json({
+        status: "success",
+    });
+
   } catch (err) {
     console.log(err);
   }

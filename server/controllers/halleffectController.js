@@ -10,12 +10,12 @@ const addHallEffectData = async (req, res) => {
       try{
         const newEntry = await db.query
           (
-              "INSERT INTO HallEffectData (rpm, data_id) VALUES ($1,$2) RETURNING *",
-              [rpm, data_id]
+              "INSERT INTO HallEffectData (rpm, sensor_id) VALUES ($1,$2) RETURNING *",
+              [rpm, sensor_id]
           );
   
-        res.status(201).json(newEntry.rows[0]);
-    
+        //res.status(201).json(newEntry.rows[0]);
+        return newEntry.rows[0];
       } catch (err) {
           console.log(err);
       }
