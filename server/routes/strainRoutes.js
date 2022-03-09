@@ -3,9 +3,9 @@ const router = express.Router();
 
 const  strainController = require('../controllers/strainController');
 
-router.post("/dataEntry/stainSensors", strainController.addStrainData);
-router.get("/dataEntry/stainSensors", strainController.getStrainData);
-router.put("/dataEntry/stainSensors", strainController.updateStrainData);
-router.delete("/dataEntry/stainSensors", strainController.deleteStrainData);
+router.post("/dataEntry/strainSensors", strainController.addStrainData);
+router.get("/dataEntry/strainSensors", strainController.getStrainData);
+router.put("/dataEntry/strainSensors", strainController.updateStrainData);
+router.delete("/dataEntry/strainSensors", strainController.deleteStrainData);
 
 module.exports = router;
