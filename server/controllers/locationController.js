@@ -5,12 +5,12 @@ const addLocationData = async (req, res) => {
   //location Data
   const {data_id, latitude, longitude}= req.body.data;
   
-  if(latitude !==null && longitude!==null){
+  if(data_id && latitude && longitude){
     try{
       const newEntry = await db.query
         (
             "INSERT INTO LocationData (latitude, longitude, data_id) VALUES ($1, $2, $3) RETURNING *",
-            [latitude, longitude,data_id]
+            [latitude, longitude, data_id]
         );
 
       // res.status(201).json(newEntry.rows[0]);

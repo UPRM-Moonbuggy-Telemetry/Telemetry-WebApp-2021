@@ -5,32 +5,18 @@ require("dotenv").config();
 const addStrainData = async (req, res) => {
   // Strain Data
   const {
-    sensor_id,
-    strain_center_front_1, strain_center_front_2, strain_center_front_3,
-    strain_center_back_1, strain_center_back_2, strain_center_back_3,
-    strain_backseat_1, strain_backseat_2, strain_backseat_3,
-    shear_strain_1, shear_strain_2, shear_strain_3 
+    data_id, strain_upper_aarm_left, strain_upper_aarm_right,strain_swing_arm_left,
+    strain_swing_arm_right, strain_collapsion_front, strain_collapsion_back, strain_p_modified
     } = req.body.data;
 
-    //Modified names
-    // strain_upper_aarm_left
-    // strain_upper_aarm_right
-    // strain_swing_arm_left
-    // strain_swing_arm_right
-    // strain_collapsion_front
-    // strain_collapsion_back
-    // strain_p_modified
-
-  //Battery Data Entry 
-  if(strain_center_front_1 && strain_center_front_2 && strain_center_front_3 &&
-    strain_center_back_1 && strain_center_back_2 && strain_center_back_3 &&
-    strain_backseat_1 && strain_backseat_2 && strain_backseat_3&&
-    shear_strain_1 && shear_strain_2 && shear_strain_3  !== null) {
+  if(data_id && strain_upper_aarm_left && strain_upper_aarm_right && strain_swing_arm_left &&
+    strain_swing_arm_right && strain_collapsion_front && strain_collapsion_back && strain_p_modified) {
       try{
         const newEntry = await db.query
           (
-              // "INSERT INTO account (username, password, email, account_validation) VALUES ($1, $2, $3, $4) RETURNING *",
-              // [username, hashedPassword, email, 0]
+              "INSERT INTO account ( strain_upper_aarm_left, strain_upper_aarm_right, strain_swing_arm_left,strain_swing_arm_right, strain_collapsion_front, strain_collapsion_back, strain_p_modified, data_id) VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING *",
+              [strain_upper_aarm_left, strain_upper_aarm_right,strain_swing_arm_left, strain_swing_arm_right,
+              strain_collapsion_front, strain_collapsion_back, strain_p_modified, data_id]
           );
   
         //res.status(201).json(newEntry.rows[0]);
@@ -44,12 +30,12 @@ const addStrainData = async (req, res) => {
 
 const getStrainData = async (req,res) => {
   try {
-    const allUsers = await db.query("SELECT * FROM users");
+    const results = await db.query("SELECT * FROM strainData");
     res.status(200).json({
         status: "success",
-        results: allUsers.rows.length,
+        results: results.rows.length,
         data: {
-            users: allUsers.rows
+            strain: results.rows
         },
     });
   } catch (err) {
@@ -60,7 +46,7 @@ const getStrainData = async (req,res) => {
 
 const updateStrainData = async (req,res) => {
   try {
-    const result = await db.query("DELETE FROM user_schedule WHERE user_id = $1", [req.params.id])
+    const result = await db.query("DELETE FROM strainData WHERE strain_id = $1", [req.params.id])
     res.status(204).json({
         status: "success",
     });
@@ -71,7 +57,7 @@ const updateStrainData = async (req,res) => {
 
 const deleteStrainData = async (req,res) => {
   try {
-    const result = await db.query("DELETE FROM user_schedule WHERE user_id = $1", [req.params.id])
+    const result = await db.query("DELETE FROM strainData WHERE strain_id = $1", [req.params.id])
     res.status(204).json({
         status: "success",
     });

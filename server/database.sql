@@ -27,28 +27,17 @@ CREATE TABLE LocationData
     data_id integer references RoverData(data_id)
 );
 
-CREATE TABLE SensorData 
-(
-    sensor_id serial primary key,
-    data_id integer references RoverData(data_id)
-);
-
 CREATE TABLE StrainData 
 (
     strain_id serial primary key,
-    strain_center_front_1 float,
-    strain_center_front_2 float,
-    strain_center_front_3 float,
-    strain_center_back_1 float,
-    strain_center_back_2 float,
-    strain_center_back_3 float,
-    strain_backseat_1 float,
-    strain_backseat_2 float,
-    strain_backseat_3 float,
-    shear_strain_1 float,
-    shear_strain_2 float,
-    shear_strain_3 float,
-    sensor_id integer references SensorData(sensor_id)
+    strain_upper_aarm_left float,
+    strain_upper_aarm_right float,
+    strain_swing_arm_left float,
+    strain_swing_arm_right float,
+    strain_collapsion_front float,
+    strain_collapsion_back float,
+    strain_p_modified float,
+    data_id integer references RoverData(sensor_id)
 );
 
 CREATE TABLE VibrationData 
@@ -59,12 +48,12 @@ CREATE TABLE VibrationData
     vibration_rear_lft float,
     vibration_rear_rt float,
     vibration_center_back float,
-    sensor_id integer references SensorData(sensor_id)
+    data_id integer references RoverData(data_id)
 );
 
 CREATE TABLE HallEffectData 
 (
     halleffect_id serial primary key,
     rpm float,
-    sensor_id integer references SensorData(sensor_id)
+    data_id integer references RoverData(data_id)
 );

@@ -5,7 +5,7 @@ require("dotenv").config();
 const addVibrationData = async (req, res) => {
   // Vibration Data
   const {
-    sensor_id,
+    data_id,
     vibration_front_lft,
     vibration_front_rt,
     vibration_rear_lft,
@@ -14,19 +14,18 @@ const addVibrationData = async (req, res) => {
     } = req.body.data;
 
   //Battery Data Entry 
-  if(vibration_front_lft !== null && vibration_front_rt !== null 
-    && vibration_rear_lft !== null && vibration_rear_rt !== null 
-    && vibration_center_back !== null) {
+  if(data_id && vibration_front_lft && vibration_front_rt 
+    && vibration_rear_lft && vibration_rear_rt && vibration_center_back) {
       try{
         const newEntry = await db.query
           (
-            "INSERT INTO VibrationData (vibration_front_lft, vibration_front_rt, vibration_rear_lft,vibration_rear_rt, vibration_center_back, sensor_id) VALUES ($1, $2, $3, $4, $5, $6) RETURNING *",
+            "INSERT INTO VibrationData (vibration_front_lft, vibration_front_rt, vibration_rear_lft,vibration_rear_rt, vibration_center_back, data_id) VALUES ($1, $2, $3, $4, $5, $6) RETURNING *",
             [ vibration_front_lft,
               vibration_front_rt,
               vibration_rear_lft,
               vibration_rear_rt,
               vibration_center_back,
-              sensor_id
+              data_id
             ]
           );
   

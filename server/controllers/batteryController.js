@@ -7,7 +7,7 @@ const addBatteryData = async (req, res) => {
   const {data_id, battery_percentage} = req.body.data;
 
   //Battery Data Entry 
-  if(battery_percentage !== null) {
+  if(data_id && battery_percentage) {
       try{
         const newEntry = await db.query
           (

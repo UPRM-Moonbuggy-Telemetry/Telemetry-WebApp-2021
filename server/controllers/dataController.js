@@ -23,15 +23,12 @@ const addData = async (req, res) => {
     req.body.data['data_id'] = newEntry.rows[0]['data_id'];
     const battery = await batteryController.addBatteryData(req,res);
     const location = await locationController.addLocationData(req,res);
-    const sensor =  await sensorController.addSensorData(req,res);
-    req.body.data['sensor_id'] = sensor['sensor_id'];
     const strain = await strainController.addStrainData(req,res);
     const vibration = await vibrationController.addVibrationData(req,res);
     const halleffect = await hallEffectController.addHallEffectData(req,res);
     
     newEntry.rows.push(battery);
     newEntry.rows.push(location);
-    newEntry.rows.push(sensor);
     newEntry.rows.push(strain);
     newEntry.rows.push(vibration);
     newEntry.rows.push(halleffect);
@@ -50,7 +47,7 @@ const getData = async (req,res) => {
         status: "success",
         results: allData.rows.length,
         data: {
-            users: allData.rows
+            data: allData.rows
         },
     });
   } catch (err) {
@@ -82,16 +79,16 @@ const deleteData = async (req,res) => {
         status: "success",
     });
 
-    const result2 = await db.query("DELETE FROM RoverData NATURAL INNER JOIN sensorData NATURAL INNER JOIN strainData WHERE data_id = $1 ", [req.params.id])
+    const result2 = await db.query("DELETE FROM RoverData NATURAL INNER JOIN strainData WHERE data_id = $1 ", [req.params.id])
     res.status(204).json({
         status: "success",
     });
 
-    const result3 = await db.query("DELETE FROM RoverData NATURAL INNER JOIN sensorData NATURAL INNER JOIN VibrationData WHERE data_id = $1 ", [req.params.id])
+    const result3 = await db.query("DELETE FROM RoverData NATURAL INNER JOIN VibrationData WHERE data_id = $1 ", [req.params.id])
     res.status(204).json({
         status: "success",
     });
-    const result4 = await db.query("DELETE FROM RoverData NATURAL INNER JOIN sensorData NATURAL INNER JOIN HalleffectData WHERE data_id = $1 ", [req.params.id])
+    const result4 = await db.query("DELETE FROM RoverData NATURAL INNER JOIN HalleffectData WHERE data_id = $1 ", [req.params.id])
     res.status(204).json({
         status: "success",
     });

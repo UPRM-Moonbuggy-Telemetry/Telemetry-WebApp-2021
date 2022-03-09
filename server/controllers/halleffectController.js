@@ -4,14 +4,14 @@ require("dotenv").config();
 
 const addHallEffectData = async (req, res) => {
   //Hall Effect Data
-  const { sensor_id, rpm } = req.body.data;
+  const { data_id, rpm } = req.body.data;
 
-  if(rpm !== null) {
+  if(data_id && rpm) {
       try{
         const newEntry = await db.query
           (
-              "INSERT INTO HallEffectData (rpm, sensor_id) VALUES ($1,$2) RETURNING *",
-              [rpm, sensor_id]
+              "INSERT INTO HallEffectData (rpm, data_id) VALUES ($1,$2) RETURNING *",
+              [rpm, data_id]
           );
   
         //res.status(201).json(newEntry.rows[0]);
@@ -27,9 +27,9 @@ const getHallEffectData = async (req,res) => {
     const allData = await db.query("SELECT * FROM HallEffectData");
     res.status(200).json({
         status: "success",
-        results: allUsers.rows.length,
+        results: allData.rows.length,
         data: {
-            users: allUsers.rows
+            halleffect: allData.rows
         },
     });
   } catch (err) {
