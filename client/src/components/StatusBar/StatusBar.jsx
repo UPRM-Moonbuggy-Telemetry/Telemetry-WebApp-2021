@@ -1,8 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 // Components
 import Button from "../Button/Button.jsx";
 import Menu from "../Menu/Menu.jsx";
+
+// Api
+import { getBatteryStatus } from "../../api/batteryStatus.js";
 
 // Styling
 import "./statusBarStyle.css"
@@ -14,8 +17,8 @@ ClarityIcons.addIcons(batteryIcon, plusCircleIcon, minusCircleIcon);
 
 export default function StatusBar() {
     // StatusBar States
-    const [batteryState, setBatteryState] = useState(23);
-    const [connectionState, setConnectionState] = useState(false);
+    const [ batteryState, setBatteryState ] = useState(0);
+    const [ connectionState, setConnectionState ] = useState(false);
     const [ menuState, setMenuState ] = useState(false);
 
     const current_date = new Date().toDateString();
@@ -49,6 +52,22 @@ export default function StatusBar() {
     const menuToggle = () => (
         setMenuState(!menuState)
     );
+    
+    // Getting the battery percentage from the back-end
+    useEffect(() => {
+        // const interval = setInterval(() => {
+            getBatteryStatus().then(response => {
+                if(response.status === 'success'){
+                    const responseLength = response.data.battery.length-1;
+                    setBatteryState(response.data.battery[responseLength].battery_percentage);
+                }
+                else
+                    console.log(response.msg)
+            });
+        // }, 60000);
+
+        // return () => clearInterval(interval);
+    });
     
     return (
         <div>

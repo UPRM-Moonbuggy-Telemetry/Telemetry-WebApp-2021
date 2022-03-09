@@ -20,9 +20,13 @@ import '../../../node_modules/react-resizable/css/styles.css'
 // To add cards add a new dictionary to the 'layout' array
 
 export default function Cards() {
-    // Context
+    // Widget Values
     const gpsValue = useContext(widgetContext)['gps'];
     const strainChartValue = useContext(widgetContext)['strain'];
+    const vibrationChartValue = useContext(widgetContext)['vibration'];
+    const shearChartValue = useContext(widgetContext)['shear'];
+    const livefeedValue = useContext(widgetContext)['livefeed'];
+    const speedValue = useContext(widgetContext)['speed'];
 
     const ResponsiveGridLayout = WidthProvider(Responsive)
 
@@ -59,6 +63,34 @@ export default function Cards() {
                         </section>
                         :
                         null
+                    }
+                    { vibrationChartValue ?
+                        <section key={'VIBRATION CHART'} className="block">
+                            <Card widget={`VIBRATION CHART`}/>  
+                        </section>
+                        :
+                        null
+                    }
+                    { shearChartValue ?
+                        <section key={'SHEAR CHART'} className="block">
+                            <Card widget={`SHEAR CHART`}/>  
+                        </section>
+                        :
+                        null        
+                    }
+                    { livefeedValue ?
+                        <section key={'LIVE FEED CHART'} className="block">
+                            <Card widget={`LIVE FEED CHART`}/>  
+                        </section>
+                        :
+                        null        
+                    }
+                    { speedValue ?
+                        <section key={'SPEED-O-METER CHART'} className="block">
+                            <Card widget={`SPEED-O-METER CHART`}/>  
+                        </section>
+                        :
+                        null        
                     }
                     { gpsValue ?
                         <section key={'GPS'} className="block">

@@ -18,8 +18,15 @@ ClarityIcons.addIcons(angleIcon);
 export default function Menu(){
     const [ submenuState, setSubmenuState ] = useState(false);
 
+    // Widget Values
     const gpsValue = useContext(widgetContext)['gps'];
     const strainChartValue = useContext(widgetContext)['strain'];
+    const vibrationChartValue = useContext(widgetContext)['vibration'];
+    const shearChartValue = useContext(widgetContext)['shear'];
+    const livefeedValue = useContext(widgetContext)['livefeed'];
+    const speedValue = useContext(widgetContext)['speed'];
+
+    // OnChange handler
     const handleChange =  useContext(widgetContext)['handleChange'];
 
     const graphsButtonStyle = {
@@ -60,19 +67,19 @@ export default function Menu(){
                             <Checkbox label="Strain" value={strainChartValue} handleChange={handleChange} name={'strain-chart'}/>
                         </div>
                         <div className="menu-item sub-item">
-                            <Checkbox label="Vibration"/>
+                            <Checkbox label="Vibration" value={vibrationChartValue} handleChange={handleChange} name={'vibration-chart'}/>
                         </div>
                         <div className="menu-item sub-item">
-                            <Checkbox label="Shear Strain"/>
+                            <Checkbox label="Shear Strain" value={shearChartValue} handleChange={handleChange} name={'shear-chart'} />
                         </div>
                     </div>
                     :
                     null }
                 <div className="menu-item">
-                    <Checkbox label="Live Feed"/>
+                    <Checkbox label="Live Feed" value={livefeedValue} handleChange={handleChange} name={'live-feed'} />
                 </div>
                 <div className="menu-item">
-                    <Checkbox label="Speed-O-Meter"/>
+                    <Checkbox label="Speed-O-Meter" value={speedValue} handleChange={handleChange} name={'speed-o-meter'} />
                 </div>
                 <div className="menu-item">
                     <Checkbox label="Global Positioning System" value={gpsValue} handleChange={handleChange} name={'gps-map'}/>
