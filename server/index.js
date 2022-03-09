@@ -1,6 +1,10 @@
 // server/server.js
 const dataRoutes = require("./routes/dataRoutes");
 const batteryRoutes = require("./routes/batteryRoutes");
+const halleffectRoutes = require("./routes/halleffectRoutes");
+const locationRoutes = require("./routes/locationRoutes");
+const strainRoutes = require("./routes/strainRoutes");
+const vibrationRoutes = require("./routes/vibrationRoutes");
 
 require("dotenv").config();
 const express = require("express");
@@ -24,6 +28,11 @@ app.use(morgan("dev")); // for logging HTTP requests in console
 // -------------------------------------Start of routes---------------
 app.use("/api", dataRoutes);
 app.use("/api", batteryRoutes);
+app.use("/api", halleffectRoutes);
+app.use("/api", locationRoutes);
+app.use("/api", strainRoutes);
+app.use("/api", vibrationRoutes);
+
 
 const PORT = process.env.PORT || 8080;
 

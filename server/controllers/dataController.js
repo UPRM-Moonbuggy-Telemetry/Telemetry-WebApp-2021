@@ -4,7 +4,6 @@ require("dotenv").config();
 
 const  batteryController = require('./batteryController');
 const  locationController = require('../controllers/locationController');
-const  sensorController = require('../controllers/sensorController');
 const  strainController = require('../controllers/strainController');
 const  vibrationController = require('../controllers/vibrationController');
 const  hallEffectController = require('../controllers/halleffectController');
