@@ -37,7 +37,7 @@ CREATE TABLE StrainData
     strain_collapsion_front float,
     strain_collapsion_back float,
     strain_p_modified float,
-    data_id integer references RoverData(sensor_id)
+    data_id integer references RoverData(data_id)
 );
 
 CREATE TABLE VibrationData 
