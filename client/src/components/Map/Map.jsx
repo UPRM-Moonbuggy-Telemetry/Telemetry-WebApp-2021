@@ -19,7 +19,7 @@ export default function Map(){
     
     // gets the most recent location of the buggy in the back-end
     useEffect(() => {
-        // const interval = setInterval(() => {
+        const interval = setInterval(() => {
             getGpsLocation().then(response => {
                 if(response.status === 'success'){
                     const reponseLength = response.data.location.length-1;
@@ -29,8 +29,8 @@ export default function Map(){
                 else
                     console.log(response.msg)
             });
-        // }, 480000);
-        // return () => clearInterval(interval);
+        }, 3600000);//refresed every hour
+        return () => clearInterval(interval);
     });
 
     // initialize map when component mounts
