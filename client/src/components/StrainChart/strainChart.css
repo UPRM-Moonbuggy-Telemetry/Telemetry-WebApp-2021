@@ -1,6 +1,6 @@
 /* strain chart div for maintaining its size */
 .s-chart{
-    height: inherit;
+    height: 98%;
     box-sizing: border-box;
     display: flexbox;
 }
