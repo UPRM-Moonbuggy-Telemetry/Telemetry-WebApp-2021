@@ -4,7 +4,7 @@
   /* To center things in the card the position needs to be set to absolute and follow the styling bellow */
     position: absolute;
     width: 100%;
-    height: 100%;
+    height: inherit;
   }
 /* End Example Card Style */
 
