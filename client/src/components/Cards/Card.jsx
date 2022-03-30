@@ -6,7 +6,7 @@ import PropTypes from 'prop-types'
 //"cardType" is a prop of type String which will determine the styling of the card as needed for each different widget
 //"widget" is a prop of dynamic type(for now) which will hold the actual widget component that will show on top of the card
 
-export default function Card({widget, cardType}) {
+export default function Card({ widget, cardType }) {
     return (
         // placeholder contents for future widgets
         <div className={cardType}>
