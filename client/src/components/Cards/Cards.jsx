@@ -10,6 +10,7 @@ import { Responsive, WidthProvider } from 'react-grid-layout';
 // Components
 import Card from './Card';
 import Map from '../Map/Map.jsx';
+import StrainChart from '../StrainChart/StrainChart';
 
 // Styles
 import './Cards.css'
@@ -55,7 +56,7 @@ export default function Cards() {
                 margin={[10,25]}>
                     { strainChartValue ?
                         <section key={'STRAIN CHART'} className="block">
-                            <Card widget={`STRAIN CHART`}/>  
+                            <Card widget={<StrainChart/>}/>  
                         </section>
                         :
                         null
