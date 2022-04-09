@@ -56,7 +56,7 @@ export default function Cards() {
                 margin={[10,25]}>
                     { strainChartValue ?
                         <section key={'STRAIN CHART'} className="block">
-                            <Card widget={<StrainChart />}/>  
+                            <Card widget={<StrainChart/>}/>  
                         </section>
                         :
                         null
