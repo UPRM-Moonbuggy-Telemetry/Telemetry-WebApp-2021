@@ -2,6 +2,7 @@ import {React, useState, useEffect} from 'react';
 import Button from '../Button/Button';
 import axios from 'axios';
 import {Line} from 'react-chartjs-2';
+import "./strainChart.css";
 import {
     Chart as ChartJS,
     CategoryScale,
@@ -154,11 +155,14 @@ export default function StrainChart() {
   // console.log(strainFront);
 
   return (
-      <div>
+      <div className='s-chart'>
           <Line options={options} data={data} />
-          <Button style={graphsButtonStyle} text={'start'} callback={graphStart} />
-          <Button style={graphsButtonStyle} text={'stop'} callback={graphStop} />
+          <div class='chart-buttons'>
+            <Button style={graphsButtonStyle} text={'start'} callback={graphStart} />
+            <Button style={graphsButtonStyle} text={'stop'} callback={graphStop} />
+          </div>
       </div>
+
   )
 
 }

@@ -1,0 +1,18 @@
+/* strain chart div for maintaining its size */
+.s-chart{
+    height: 98%;
+    box-sizing: border-box;
+    display: flexbox;
+}
+
+.chart-buttons{
+    display: inline-flex;
+    position: absolute;
+    right: 0px;
+    bottom: 0px;
+    margin-right: 18px;
+}
+
+canvas{ 
+height: inherit !important;
+}
