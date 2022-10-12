@@ -10,7 +10,7 @@ import { Responsive, WidthProvider } from 'react-grid-layout';
 // Components
 import Card from './Card';
 import Map from '../Map/Map.jsx';
-import StrainChart from '../StrainChart/StrainChart';
+// import StrainChart from '../StrainChart/StrainChart';
 
 // Styles
 import './Cards.css'
@@ -58,13 +58,13 @@ export default function Cards() {
                 maxRows={2}
                 rowHeight={400} 
                 margin={[10,25]}>
-                    { strainChartValue ?
+                    {/* { strainChartValue ?
                         <section key={'STRAIN CHART'} className="block">
                             <Card widget={<StrainChart/>}/>  
                         </section>
                         :
                         null
-                    }
+                    } */}
                     { vibrationChartValue ?
                         <section key={'VIBRATION CHART'} className="block">
                             <Card widget={`VIBRATION CHART`}/>  
