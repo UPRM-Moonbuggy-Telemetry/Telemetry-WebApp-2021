@@ -29,7 +29,7 @@ export default function Map(){
                 else
                     console.log(response.msg)
             });
-        }, 3600000);//refresed every hour
+        }, 30000);//refresed every hour
         return () => clearInterval(interval);
     });
 
