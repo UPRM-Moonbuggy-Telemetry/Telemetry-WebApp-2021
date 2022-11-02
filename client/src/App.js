@@ -23,7 +23,7 @@ function App() {
 
   return (
     <BrowserRouter>
-    <Navbar/>
+      <Navbar/>
       <Switch>
         <Route path="/" component= {Home} exact/>
         <Route path="/analytics" component= {Analytics} exact/>

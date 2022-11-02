@@ -53,13 +53,10 @@ function Home() {
     return (
         <>
             <widgetContext.Provider value={widgetConValue}>
-                <div className = "cardSection" style={{maxHeight: '1500px'}}>
-                    <Cards />
-                </div>
                 <StatusBar />
             </widgetContext.Provider>
         </>
     );
-  }
-  
-  export default Home;
+}
+
+export default Home;
