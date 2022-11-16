@@ -25,30 +25,28 @@ export default function Navbar() {
     <body>
       <div className="menu-wrap" />
         <div className="menu">
-          <div>
-              {/* Moonbuggy Logo*/}
+          {/*<div>
+              * Moonbuggy Logo*
               <img alt= "moonbuggy logo" className="moonbuggy-logo" src={shortlogo} /> 
-              {/* Nasa & UPRM Logos */}
+              /* Nasa & UPRM Logos *
               <img alt="uprm logo" className="uprm-logo" src={uprmlogo} />
               <img alt="nasa logo" className="nasa-logo" src={nasalogo} />
-          </div>
-          <div className="button-list" > {/* Buttons/Links */}
+          </div> 
+                
+          <div className="button-list" >  *Buttons/Links *
               <Nav.Link className="Navbar-button" href="/"><text>
                 <CdsIcon className="icon" size="lg" shape="home"></CdsIcon>Dashboard
               </text></Nav.Link>
               <Nav.Link className="Navbar-button" href="/analytics"><text>
               <i class="bi bi-graph-up icon"></i>Analytics
-              </text></Nav.Link>
+              </text> </Nav.Link>
               <Nav.Link className="Navbar-button" href="/aboutus"><text>
               <i class="bi bi-people icon" style={{marginRight:"20px", fontSize:"28px"}}></i>About Us
               </text></Nav.Link>
           </div>
-          <div className="logo-list">  {/* Sponsors */}
-            <img alt="chevron logo" className="chevron-logo" src={chevronlogo} />
-            <img alt="gm-logo" className="gm-logo" src={gmlogo} />
-            <img alt="nnl-logo"className="nnl-logo" src={nnllogo} />
-            <img alt="boeing-logo"className="boeing-logo" src={boeinglogo} />
-          </div>
+
+          */}
+
         </div>
       </body>
     </div>
