@@ -1,6 +1,6 @@
 import React from "react";
 import { Nav } from "react-bootstrap";
-import "../../App.css";
+// import "../../App.css";
 import "./footer.css";
 
 //Images
@@ -21,21 +21,16 @@ export default function Footer() {
   
 
   return (
-    <div className="hamburger-container">
-    <body>
-      <div className="menu-wrap" />
-        <div className="menu">
-          <div className="logo-list">
-            <img alt="nasa logo" className="nasa-logo" src={nasalogo} />
-            <img alt="nnl-logo"className="nnl-logo" src={nnllogo} />
-            <img alt="chevron logo" className="chevron-logo" src={chevronlogo} />
-            <img alt="gm-logo" className="gm-logo" src={gmlogo} />
-            <img alt="uprm logo" className="uprm-logo" src={uprmlogo} />
-            <img alt="boeing-logo"className="boeing-logo" src={boeinglogo} />
-          </div> 
-        </div>
-      </body>
+    <div className="footer">
+      <div className="sponsors-list">
+        <p className="text">Sponsors:</p>
+        <img alt="nasa logo" src={nasalogo} />
+        <img alt="nnl-logo" src={nnllogo} />
+        <img alt="chevron logo" src={chevronlogo} />
+        <img alt="gm-logo" src={gmlogo} />
+        <img alt="uprm logo" src={uprmlogo} />
+        <img alt="boeing-logo" src={boeinglogo} />
+      </div> 
     </div>
-
     ); 
 }

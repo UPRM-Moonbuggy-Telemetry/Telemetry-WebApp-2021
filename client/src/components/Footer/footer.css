@@ -1,133 +1,32 @@
 /* Navbar */
 
-.menu{
-    position: absolute;
-    width: 100%;
-    height: 90px;  
-    /* height: 972.77px; */
-    left: 0px;
-    bottom: 20.61px;
-    background: #C9C9C9;
-    box-shadow: 3.81105px 3.81105px 3.81105px rgba(0, 0, 0, 0.25);
-    border-radius: 4.98346px;
+.footer{
+  position: absolute;
+  height: 90px; 
+  width: 100%;
+  bottom: 0px;
+  background: #C9C9C9;
+}
   
-  }
-  
+.sponsors-list{
+  width: 100%;
+  align-items: center;
+  justify-content: space-evenly;
+  display: flex;
+  margin-top: 12px;
+}
 
-  
-  .button-list{
-    position: absolute;
-    top: 256.94px; 
-    display: flex;
-    flex-direction: column;
-    justify-content: center; 
-  }
-  
-  .Navbar-button{
-    width: 216.64px;
-    height: 75.51px;
-    margin: 8px;
-    background: #A1D7AB;
-    border-radius: 4.98346px;
-    /* text */
-    text-decoration: none;
-    text-align: center;
-    /* text */
-  }
-  
-  .Navbar-button > text{
-    width: 140.18px;
-    height: 38px;
-    font-family: 'Roboto Mono';
-    font-style: normal;
-    font-weight: normal;
-    font-size: 24.7718px;
-    line-height: 70px;
-    color: #2E854F;
-  } 
-  
-  .Navbar-button:hover{
-    background: #B2DEBA;
-    box-shadow: 0px 0.952763px 3.81105px rgba(0, 0, 0, 0.25);
-  }
-  
-  .logo-list{
-    width: 95%;
-    position: absolute;
-    bottom: -25px;
-    left: 0;
-    text-align: center;
-    align-items: center;
-    justify-content: space-between;
-    padding: 9px 25px 25px;
-  }
-  
-  .chevron-logo{
-    position: relative;
-    width: 70.36px;
-    height: 58.9px;
-    border-radius: 4.98346px;
-    margin: 10px;
-    margin-left: 45px;
-  }
-  
-  .gm-logo{
-    position: relative;
-    width: 52.04px;
-    height: 53.8px;
-    margin: 10px;
-    border-radius: 4.98346px;
-    margin: 10px;
-    margin-left: 45px;
-  }
-  
-  .nnl-logo{
-    position: relative;
-    width: 100.42px;
-    height: 80.85px;
-    border-radius: 4.98346px;
-    margin-left: 45px;
-  }
-  
-  .boeing-logo{
-    position: relative;
-    width: 144.38px;
-    height: 53.7px;
-    border-radius: 4.98346px; 
-    margin: 10px;
-    margin-left: 45px;
-  }
-/* Lowered position of uprm and nasa logos for consistency and required adjustments. Commented moonbuggy logo as not relevant for this part*/
-  .uprm-logo{
-    position: relative;
-    width: 67.76px;
-    height: 69.62px;
-    border-radius: 4.98346px; 
-    margin-left: 45px;
-  }
-  
-  .nasa-logo {
-    position: relative;
-    width: 80.21px;
-    height: 69.62px;
-    left: 36.27px;
-    border-radius: 4.98346px; 
-    margin-left: 45px;
-  }
-  /*
-  .moonbuggy-logo{
-    position: relative;
-    width: 168.72px;
-    height: 112.88px;
-    border-radius: 4.98346px; 
-    margin-left: 10px;
-  }
-  */
-  .icon{
-    margin: 10px;
-    margin-bottom: 20px;
-    font-size: 24px;
-    width: 32px;
-  }
-  
-  /* End Navbar */
+div > img{
+  aspect-ratio: 3/2;
+  object-fit: contain;
+  height: 70px;
+}
+
+.text {
+  font-family: "Roboto Mono";
+  line-height: 24px;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 17px;
+  color: #202a24;
+}
