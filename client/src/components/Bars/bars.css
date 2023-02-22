@@ -1,0 +1,48 @@
+.bars-wrapper{
+    position: absolute;
+
+    top: 70px;
+    left: 34px;
+
+    width: 170px;
+
+    background: #A1D7AB;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.4);
+    border-radius: 5px;
+}
+
+.bars-content{
+    padding: 10px;
+}
+
+.bars-item{
+    display: block;
+
+    text-align: left;
+
+    padding: 10px;
+
+    font-family: "Roboto Mono";
+    line-height: 24px;
+    font-size: 17px;
+    color: #2E854F;
+}
+
+.bars-item.sub-item{
+    padding-left: 30px;
+}
+
+.button-icon{
+    transform: rotate(0deg);
+}
+
+.button-icon.up{
+    transform: rotate(360deg);
+}
+
+.bars-item:hover{
+    background: #B2DEBA;
+    border-radius: 5px;
+}
+
+

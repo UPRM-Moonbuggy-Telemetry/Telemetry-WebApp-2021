@@ -1,0 +1,82 @@
+/*Adding hamburger menu add-ons including moonbuggy logo*/
+
+.bar{
+    align-items: center;
+    justify-content: center;
+    display: flex;
+
+    padding: 9px 25px 9px;
+}
+
+.hamburger-menu {
+    background-color: #49A56C;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.4);
+    border-radius: 5px;
+    height: 43.13px;
+    width: fit-content;
+
+    transition: all 0.3s;
+    cursor: pointer;
+    vertical-align:top;
+    float: left;
+}
+
+.hamburger-menu:hover {
+    opacity: 0.8;
+}
+
+.add-button {
+    background-color: #49A56C;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.4);
+    border-radius: 5px;
+    
+    width: fit-content;
+    height: 43.13px;
+
+    transition: all 0.3s;
+    cursor: pointer;
+    margin-left: 30px;
+    margin-right: 30px;
+}
+
+/* This is the animation for the add widget button */
+.add-button:hover {
+    opacity: 0.8;
+}
+
+.button-icon {
+    margin-bottom: 4px;
+    margin-left: 4px;
+    color: white;
+}
+
+.bar-block { 
+    min-width: 800px;
+    height: 43.13px;
+
+    width: 75%;
+    background: #49A56C;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.4);
+    border-radius: 5px;
+}
+
+.bar-text {
+    align-items: center;
+    justify-content: space-between;
+    display: flex;
+
+    padding: 9px 25px 9px;
+
+    font-family: "Roboto Mono";
+    line-height: 24px;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 17px;
+    color: white;
+}
+
+.bar-icons {
+    margin-bottom: 4px;
+    margin-left: 4px;
+    transform: rotateX(180deg) rotateZ(90deg);
+}
