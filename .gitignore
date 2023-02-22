@@ -1,3 +1,4 @@
+
 # dependencies
 **/node_modules
 
@@ -19,6 +20,10 @@
 # misc
 npm-debug.log
 yarn-error.log
+package-lock.json
 
 # System Files
 .DS_Store
+
+# Env Variable
+**/.env
