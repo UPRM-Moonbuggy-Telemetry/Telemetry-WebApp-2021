@@ -1,11 +1,7 @@
-import React, { useState, useContext } from "react";
-import { Nav } from "react-bootstrap";
-// Context
-import { widgetContext } from "../../assets/contexts/WidgetContext";
+import React from "react";
 
 // Components
 import Button from "../Button/Button";
-import Checkbox from "../CheckBox/Checkbox";
 
 // Styles
 import './bars.css'
@@ -16,11 +12,6 @@ import { ClarityIcons, homeIcon,lineChartIcon,userIcon } from '@cds/core/icon';
 ClarityIcons.addIcons(homeIcon,lineChartIcon,userIcon);
 
 export default function Bars (){
-    const [ submenuState, setSubmenuState ] = useState(false);
-
-    // OnChange handler
-    const handleChange =  useContext(widgetContext)['handleChange'];
-
     const graphsButtonStyle = {
         border: "none",
         textAlign: "left",
@@ -48,13 +39,13 @@ export default function Bars (){
         <div className="bars-wrapper">
             <div className="bars-content">
                 <div className="bars-item">
-                <a href="/"> <Button buttonStyle={graphsButtonStyle} text='Dashboard' icon={homeIconButton}></Button> </a>
+                    <a href="/"> <Button buttonStyle={graphsButtonStyle} text='Dashboard' icon={homeIconButton}></Button> </a>
                 </div>
                 <div className="bars-item">
                     <a href="/analytics"> <Button buttonStyle={graphsButtonStyle} text='Analytics' icon={lineIconButton}></Button> </a>
                 </div>
                 <div className="bars-item">
-                <a href="/aboutus"> <Button buttonStyle={graphsButtonStyle} text='About Us' icon={userIconButton}></Button> </a>
+                    <a href="/aboutus"> <Button buttonStyle={graphsButtonStyle} text='About Us' icon={userIconButton}></Button> </a>
                 </div>
             </div>
         </div>

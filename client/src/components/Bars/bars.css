@@ -1,13 +1,14 @@
 .bars-wrapper{
     position: absolute;
 
-    top: 75.07px;
-    left: 5px;
-    width: 320px;
+    top: 70px;
+    left: 34px;
+
+    width: 170px;
+
     background: #A1D7AB;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.4);
     border-radius: 5px;
-    
 }
 
 .bars-content{
@@ -15,7 +16,6 @@
 }
 
 .bars-item{
-    
     display: block;
 
     text-align: left;
