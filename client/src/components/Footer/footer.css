@@ -1,0 +1,32 @@
+/* Navbar */
+
+.footer{
+  position: absolute;
+  height: 90px; 
+  width: 100%;
+  bottom: 0px;
+  background: #C9C9C9;
+}
+  
+.sponsors-list{
+  width: 100%;
+  align-items: center;
+  justify-content: space-evenly;
+  display: flex;
+  margin-top: 12px;
+}
+
+div > img{
+  aspect-ratio: 3/2;
+  object-fit: contain;
+  height: 70px;
+}
+
+.text {
+  font-family: "Roboto Mono";
+  line-height: 24px;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 17px;
+  color: #202a24;
+}

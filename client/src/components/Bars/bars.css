@@ -1,21 +1,21 @@
-.menu-wrapper{
+.bars-wrapper{
     position: absolute;
 
     top: 70px;
-    left: 290px;
+    left: 34px;
 
-    width: 320px;
+    width: 170px;
 
     background: #A1D7AB;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.4);
     border-radius: 5px;
 }
 
-.menu-content{
+.bars-content{
     padding: 10px;
 }
 
-.menu-item{
+.bars-item{
     display: block;
 
     text-align: left;
@@ -28,19 +28,19 @@
     color: #2E854F;
 }
 
-.menu-item.sub-item{
+.bars-item.sub-item{
     padding-left: 30px;
 }
 
 .button-icon{
-    transform: rotate(180deg);
+    transform: rotate(0deg);
 }
 
 .button-icon.up{
     transform: rotate(360deg);
 }
 
-.menu-item:hover{
+.bars-item:hover{
     background: #B2DEBA;
     border-radius: 5px;
 }
