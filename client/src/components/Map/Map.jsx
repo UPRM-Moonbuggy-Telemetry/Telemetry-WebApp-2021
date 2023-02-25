@@ -18,20 +18,20 @@ export default function Map(){
     const [ LnglatState, setlnglatState ] = useState([-67.1533567, 18.2198062])
     
     // gets the most recent location of the buggy in the back-end
-    useEffect(() => {
-        const interval = setInterval(() => {
-            getGpsLocation().then(response => {
-                if(response.status === 'success'){
-                    const reponseLength = response.data.location.length-1;
-                    const location = response.data.location[reponseLength];
-                    setlnglatState((LnglatState) => [location.longitude, location.latitude])
-                }
-                else
-                    console.log(response.msg)
-            });
-        }, 30000);//refresed every hour
-        return () => clearInterval(interval);
-    });
+    // useEffect(() => {
+    //     const interval = setInterval(() => {
+    //         getGpsLocation().then(response => {
+    //             if(response.status === 'success'){
+    //                 const reponseLength = response.data.location.length-1;
+    //                 const location = response.data.location[reponseLength];
+    //                 setlnglatState((LnglatState) => [location.longitude, location.latitude])
+    //             }
+    //             else
+    //                 console.log(response.msg)
+    //         });
+    //     }, 30000);//refresed every hour
+    //     return () => clearInterval(interval);
+    // });
 
     // initialize map when component mounts
     useEffect(() => {

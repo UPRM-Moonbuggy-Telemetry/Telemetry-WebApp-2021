@@ -1,0 +1,21 @@
+.dashboard-container{
+
+    display: flex;
+    position: absolute;
+
+    top: 80px;
+    bottom: 120px;
+    right: 30px;
+    left: 30px;
+}
+
+.block{
+    position: relative;
+    background: #EFEFEF;
+    box-shadow: 4px 6px 4px rgba(0, 0, 0, 0.4);
+    border-radius: 20px;
+
+    min-height: 350px;
+    height: 100%;
+    width: 100%;
+}

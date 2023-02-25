@@ -1,14 +1,14 @@
 import React, { useState } from "react";
 import "../../App.css";
 import "./home.css";
-import '../../components/Cards/Card.css';
 
 // Context
 import { widgetContext } from "../../assets/contexts/WidgetContext";
 
 // Components
 import StatusBar from "../../components/StatusBar/StatusBar";
-import Cards from "../../components/Cards/Cards";
+import Dashboard from "../../components/Dashboard/Dashboard";
+import Footer from "../../components/Footer/Footer";
 
 function Home() {
     // Chart Widgets States
@@ -54,6 +54,8 @@ function Home() {
         <>
             <widgetContext.Provider value={widgetConValue}>
                 <StatusBar />
+                <Dashboard />
+                <Footer />
             </widgetContext.Provider>
         </>
     );
