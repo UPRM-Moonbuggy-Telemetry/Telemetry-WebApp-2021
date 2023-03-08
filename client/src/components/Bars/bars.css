@@ -9,6 +9,8 @@
     background: #A1D7AB;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.4);
     border-radius: 5px;
+
+    z-index: 1;
 }
 
 .bars-content{
@@ -44,5 +46,3 @@
     background: #B2DEBA;
     border-radius: 5px;
 }
-
-
