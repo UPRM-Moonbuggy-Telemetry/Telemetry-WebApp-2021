@@ -21,6 +21,7 @@
 npm-debug.log
 yarn-error.log
 package-lock.json
+build
 
 # System Files
 .DS_Store
