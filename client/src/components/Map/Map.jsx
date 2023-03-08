@@ -17,21 +17,23 @@ export default function Map(){
     const mapContainerRef = useRef(null);
     const [ LnglatState, setlnglatState ] = useState([-67.1533567, 18.2198062])
     
-    // gets the most recent location of the buggy in the back-end
-    // useEffect(() => {
-    //     const interval = setInterval(() => {
-    //         getGpsLocation().then(response => {
-    //             if(response.status === 'success'){
-    //                 const reponseLength = response.data.location.length-1;
-    //                 const location = response.data.location[reponseLength];
-    //                 setlnglatState((LnglatState) => [location.longitude, location.latitude])
-    //             }
-    //             else
-    //                 console.log(response.msg)
-    //         });
-    //     }, 30000);//refresed every hour
-    //     return () => clearInterval(interval);
-    // });
+    //gets the most recent location of the buggy in the back-end
+    useEffect(() => {
+        const interval = setInterval(() => {
+            getGpsLocation().then(response => {
+                if(response.status === 'success'){
+                    const reponseLength = response.data.location.length-1;
+                    const location = response.data.location[reponseLength];
+                    if (LnglatState[0] !== location.longitude && LnglatState[1] !== location.latitude)
+                        setlnglatState((LnglatState) => [location.longitude, location.latitude]);
+                }
+                else{
+                    console.log(response.message);
+                }
+            });
+        }, 20000);//refresed every hour
+        return () => clearInterval(interval);
+    });
 
     // initialize map when component mounts
     useEffect(() => {
@@ -39,7 +41,7 @@ export default function Map(){
             container: mapContainerRef.current,
             style: 'mapbox://styles/mapbox/streets-v11',
             center: LnglatState,
-            zoom: 8.5 
+            zoom: 17 
         });
         
 
@@ -47,7 +49,7 @@ export default function Map(){
         map.addControl(new mapboxgl.NavigationControl(), 'bottom-right');
 
         // disables the user to pan the map by clicking and dragging the cursor to move on the map
-        map.dragPan.disable();
+        //map.dragPan.disable();
 
         map.on(new mapboxgl.Marker(Marker).setLngLat(LnglatState).addTo(map));
 
